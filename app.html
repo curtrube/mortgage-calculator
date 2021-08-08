@@ -82,18 +82,24 @@
               <input
                 type="number"
                 class="form-control"
-                d
                 id="loanAmount"
                 placeholder="Amount"
+                aria-label="Loan Amount"
+                aria-describedby="loan-amount"
+                required
               />
             </div>
-            <div class="mb-3">
-              <label for="interestRate" class="form-label">Interest Rate</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"
+                ><i class="fas fa-percent"></i
+              ></span>
               <input
                 type="number"
                 class="form-control"
                 id="interestRate"
                 placeholder="Interest Rate"
+                aria-label="Interest Rate"
+                aria-describedby="basic-addon1"
               />
             </div>
             <div class="input-group mb-3">
@@ -114,10 +120,21 @@
                 class="btn btn-secondary mt-2"
                 onclick="calculateMortgage(event);"
               >
-                Submit
+                Calculate
               </button>
             </div>
           </form>
+          <div>
+            <div>
+              <h1 id="displayTotal"></h1>
+            </div>
+            <div>
+              <h1 id="displayInterest"></h1>
+            </div>
+            <div>
+              <h1 id="displayLength"></h1>
+            </div>
+          </div>
         </div>
       </div>
     </main>
