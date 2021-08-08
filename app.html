@@ -37,7 +37,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="./index.html">
           <img src="./img/rubiks_cube.png" height="50" alt="Rubik's Cube" />
-          <span>Rubeck's Cube</span>
+          <span>Mortgage Calculator</span>
         </a>
         <button
           class="navbar-toggler"
@@ -70,7 +70,56 @@
     </nav>
     <!-- Main -->
     <main class="flex-shrink-0">
-      <h1>app.html</h1>
+      <div id="root" class="container mt-5">
+        <div>
+          <h1>Mortgage Calculator</h1>
+          <p>Quickly calculate your monthly mortgage payment</p>
+        </div>
+        <div>
+          <form>
+            <div class="mb-3">
+              <label for="loanAmount" class="form-label">Loan Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                d
+                id="loanAmount"
+                placeholder="Amount"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="interestRate" class="form-label">Interest Rate</label>
+              <input
+                type="number"
+                class="form-control"
+                id="interestRate"
+                placeholder="Interest Rate"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <span for="mortageLength" class="input-group-text"
+                >Mortgage Length</span
+              >
+              <select class="form-select" id="mortgageLength">
+                <option selected>Select</option>
+                <option value="15">15 Years</option>
+                <option value="20">20 Years</option>
+                <option value="30">30 Years</option>
+              </select>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="btn btn-secondary mt-2"
+                onclick="calculateMortgage(event);"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
     <!-- Footer -->
     <footer class="footer mt-auto py-3 sticky-footer">
