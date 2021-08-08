@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <title>AppName : Coding Project by Curtis Rubeck</title>
+    <title>Mortgage Calculator</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -72,67 +72,90 @@
     <main class="flex-shrink-0">
       <div id="root" class="container mt-5">
         <div>
-          <h1>Mortgage Calculator</h1>
-          <p>Quickly calculate your monthly mortgage payment</p>
+          <h1 class="display-5">Mortgage Calculator</h1>
+          <p class="lead">Quickly calculate your monthly mortgage payment</p>
         </div>
-        <div>
-          <form>
-            <div class="mb-3">
-              <label for="loanAmount" class="form-label">Loan Amount</label>
-              <input
-                type="number"
-                class="form-control"
-                id="loanAmount"
-                placeholder="Amount"
-                aria-label="Loan Amount"
-                aria-describedby="loan-amount"
-                required
-              />
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"
-                ><i class="fas fa-percent"></i
-              ></span>
-              <input
-                type="number"
-                class="form-control"
-                id="interestRate"
-                placeholder="Interest Rate"
-                aria-label="Interest Rate"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-            <div class="input-group mb-3">
-              <span for="mortageLength" class="input-group-text"
-                >Mortgage Length</span
-              >
-              <select class="form-select" id="mortgageLength">
-                <option selected>Select</option>
-                <option value="15">15 Years</option>
-                <option value="20">20 Years</option>
-                <option value="30">30 Years</option>
-              </select>
-            </div>
-
+        <div class="row">
+          <div class="col-12">
+            <form>
+              <div class="form-group-1">
+                <label for="loanAmount" class="form-label">Loan Amount</label>
+                <div class="input-group mb-3">
+                  <span class="input-group-text"
+                    ><i class="fas fa-money-bill-alt"></i
+                  ></span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="loanAmount"
+                    placeholder="Loan Amount"
+                    aria-label="Loan Amount"
+                    aria-describedby="loan-amount"
+                    required="required"
+                  />
+                </div>
+              </div>
+              <div class="form-group-2">
+                <label for="interestRate" class="form-label"
+                  >Annual Interest Rate</label
+                >
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fas fa-percent"></i
+                  ></span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="interestRate"
+                    placeholder="Interest Rate"
+                    aria-label="Interest Rate"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group-3">
+                <label for="mortgageLength" class="form-label"
+                  >Mortgage Length</label
+                >
+                <div class="input-group mb-3">
+                  <span for="mortageLength" class="input-group-text"
+                    ><i class="far fa-calendar-alt"></i
+                  ></span>
+                  <select class="form-select" id="mortgageLength">
+                    <!-- <option selected>Select</option> -->
+                    <option value="15">15 Years</option>
+                    <option value="20">20 Years</option>
+                    <option value="30" selected>30 Years</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-btn">
+                <button
+                  type="submit"
+                  class="btn btn-secondary mt-2"
+                  onclick="calculateMortgage(event);"
+                >
+                  Calculate
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-12">
             <div>
-              <button
-                type="submit"
-                class="btn btn-secondary mt-2"
-                onclick="calculateMortgage(event);"
-              >
-                Calculate
-              </button>
-            </div>
-          </form>
-          <div>
-            <div>
-              <h1 id="displayTotal"></h1>
-            </div>
-            <div>
-              <h1 id="displayInterest"></h1>
-            </div>
-            <div>
-              <h1 id="displayLength"></h1>
+              <div>
+                <h3>Monthly Payment</h3>
+              </div>
+              <div>
+                <div class="row">
+                  <div class="col-8">
+                    <p class="lead">Principal + Interest</p>
+                  </div>
+                  <div class="col-4">
+                    <span class="lead" id="totalMonthlyPayment"></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

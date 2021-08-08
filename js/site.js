@@ -7,9 +7,8 @@ const calculateMortgage = (event) => {
 };
 
 const displayResults = (monthlyPayment) => {
-  const displayTotal = document.getElementById("displayTotal");
-
-  displayTotal.innerHTML = monthlyPayment;
+  const displayTotal = document.getElementById("totalMonthlyPayment");
+  displayTotal.innerHTML = `$ ${monthlyPayment}`;
 };
 
 const getValues = () => {
@@ -43,5 +42,5 @@ const calculateMonthlyPayment = (amount, rate, length) => {
     (1 - Math.pow(1 + monthlyInterestRate, numberOfPayments * -1));
   console.log(`Monthly Payment: ${monthlyPayment.toFixed(2)}`);
 
-  displayResults(monthlyPayment.toFixed(2));
+  displayResults(monthlyPayment.toFixed());
 };

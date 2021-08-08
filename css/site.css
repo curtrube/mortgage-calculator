@@ -7,7 +7,7 @@
 
 body {
   color: var(--dark-color);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 nav {
@@ -69,8 +69,8 @@ main > .container {
   color: var(--secondary-color);
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
