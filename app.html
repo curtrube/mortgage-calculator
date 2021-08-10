@@ -28,6 +28,9 @@
       src="https://kit.fontawesome.com/5db21ba9c6.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./node_modules/chart.js/dist/chart.js"></script>
+
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="icon" type="imgage/png" href="./img/favicon-32x32.png" />
   </head>
@@ -133,7 +136,7 @@
               <div class="form-btn">
                 <button
                   type="submit"
-                  class="btn btn-secondary mt-2"
+                  class="btn btn-success mt-2"
                   onclick="calculateMortgage(event);"
                 >
                   Calculate
@@ -141,22 +144,47 @@
               </div>
             </form>
           </div>
-          <div class="col-12">
+          <!-- Section -->
+          <div class="col-12 mt-5">
             <div>
               <div>
                 <h3>Monthly Payment</h3>
               </div>
               <div>
                 <div class="row">
-                  <div class="col-8">
+                  <div class="col">
                     <p class="lead">Principal + Interest</p>
                   </div>
-                  <div class="col-4">
+                  <div class="col">
                     <span class="lead" id="totalMonthlyPayment"></span>
+                  </div>
+                  <div class="col">
+                    <p class="lead">Homeowner's Insurance</p>
+                  </div>
+                  <div class="col">
+                    <span class="lead" id="homeownersInsurance"></span>
+                  </div>
+                  <div class="col">
+                    <p class="lead">Property Tax</p>
+                  </div>
+                  <div class="col">
+                    <span class="lead" id="propertyTax"></span>
+                  </div>
+                  <div class="col">
+                    <p class="lead">HOA fees</p>
+                  </div>
+                  <div class="col">
+                    <span class="lead" id="hoaFees"></span>
+                  </div>
+                  <div class="col">
+                    <canvas id="myChart" width="400" height="400"></canvas>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="col-3">
+            <canvas id="myChart" width="400" height="400"></canvas>
           </div>
         </div>
       </div>
