@@ -82,7 +82,9 @@
           <div class="col-12">
             <form>
               <div class="form-group-1">
-                <label for="loanAmount" class="form-label">Loan Amount</label>
+                <label for="loanAmount" class="form-label lead"
+                  >Loan Amount</label
+                >
                 <div class="input-group mb-3">
                   <span class="input-group-text"
                     ><i class="fas fa-money-bill-alt"></i
@@ -99,7 +101,7 @@
                 </div>
               </div>
               <div class="form-group-2">
-                <label for="interestRate" class="form-label"
+                <label for="interestRate" class="form-label lead"
                   >Annual Interest Rate</label
                 >
                 <div class="input-group mb-3">
@@ -118,7 +120,7 @@
                 </div>
               </div>
               <div class="form-group-3">
-                <label for="mortgageLength" class="form-label"
+                <label for="mortgageLength" class="form-label lead"
                   >Mortgage Length</label
                 >
                 <div class="input-group mb-3">
@@ -146,45 +148,48 @@
           </div>
           <!-- Section -->
           <div class="col-12 mt-5">
-            <div>
-              <div>
-                <h3>Monthly Payment</h3>
-              </div>
-              <div>
+            <div class="row">
+              <div class="col">
+                <div>
+                  <h3>Monthly Payment</h3>
+                </div>
                 <div class="row">
                   <div class="col">
-                    <p class="lead">Principal + Interest</p>
+                    <p>Principal + Interest</p>
                   </div>
                   <div class="col">
-                    <span class="lead" id="totalMonthlyPayment"></span>
+                    <span id="monthlyPrincipal"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Homeowner's Insurance</p>
                   </div>
                   <div class="col">
-                    <p class="lead">Homeowner's Insurance</p>
+                    <span id="monthlyInsurance"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Property Tax</p>
                   </div>
                   <div class="col">
-                    <span class="lead" id="homeownersInsurance"></span>
+                    <span id="monthlyTaxes"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>HOA fee</p>
                   </div>
                   <div class="col">
-                    <p class="lead">Property Tax</p>
-                  </div>
-                  <div class="col">
-                    <span class="lead" id="propertyTax"></span>
-                  </div>
-                  <div class="col">
-                    <p class="lead">HOA fees</p>
-                  </div>
-                  <div class="col">
-                    <span class="lead" id="hoaFees"></span>
-                  </div>
-                  <div class="col">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <span id="monthlyFees">$0</span>
                   </div>
                 </div>
               </div>
+              <div class="col">
+                <canvas id="myChart" width="400" height="400"></canvas>
+              </div>
             </div>
-          </div>
-          <div class="col-3">
-            <canvas id="myChart" width="400" height="400"></canvas>
           </div>
         </div>
       </div>

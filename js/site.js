@@ -1,24 +1,14 @@
-const insurance = 78;
-const taxes = 132;
-const fees = 0;
-
 const calculateMortgage = (event) => {
   event.preventDefault();
-
   const { amount, rate, length } = getValues();
 
   calculateMonthlyPayment(amount, rate, length);
 };
 
-const displayResults = (monthlyPayment) => {
-  const displayTotal = document.getElementById("totalMonthlyPayment");
-  displayTotal.innerHTML = `$${monthlyPayment}`;
-};
-
 const getValues = () => {
-  const loanAmount = document.getElementById("loanAmount").value;
-  const interestRate = document.getElementById("interestRate").value;
-  const length = document.getElementById("mortgageLength").value;
+  const loanAmount = Number(document.getElementById("loanAmount").value);
+  const interestRate = Number(document.getElementById("interestRate").value);
+  const length = Number(document.getElementById("mortgageLength").value);
 
   const loan = {
     amount: loanAmount,
@@ -27,6 +17,39 @@ const getValues = () => {
   };
 
   return loan;
+};
+
+const displayResults = (monthlyPayment) => {
+  const displayTotal = document.getElementById("totalMonthlyPayment");
+  displayTotal.innerHTML = monthlyPayment;
+};
+
+const displayMonthlyTotals = (principal, insurance, taxes, fees) => {
+  const monthlyPrincipal = document.getElementById("monthlyPrincipal");
+  const monthlyInsurance = document.getElementById("monthlyInsurance");
+  const monthlyTaxes = document.getElementById("monthlyTaxes");
+  const monthlyFees = document.getElementById("monthlyFees");
+
+  monthlyPrincipal.innerHTML = `$ ${principal}`;
+};
+
+const displayLoanChart = (principal, insurance, taxes, fees) => {
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: "pie",
+    data: {
+      // Blue, Green, Red, Yellow
+      labels: ["Principal", "Insurance", "Taxes", "HOA fees"],
+      datasets: [
+        {
+          label: "My First Dataset",
+          data: [principal, insurance, taxes, fees],
+          backgroundColor: ["#4895ef", "#ef476f", "#ffba08", "#9e2a2b"],
+          hoverOffset: 4,
+        },
+      ],
+    },
+  });
 };
 
 const calculateMonthlyPayment = (amount, rate, length) => {
@@ -46,30 +69,11 @@ const calculateMonthlyPayment = (amount, rate, length) => {
     (1 - Math.pow(1 + monthlyInterestRate, numberOfPayments * -1));
   console.log(`Monthly Payment: ${monthlyPayment.toFixed(2)}`);
 
-  displayResults(monthlyPayment.toFixed());
-  displayLoanChart(monthlyPayment);
-};
+  // static vars for development
+  const insurance = 78;
+  const taxes = 132;
+  const fees = 0;
 
-const displayLoanChart = (principal) => {
-  var ctx = document.getElementById("myChart").getContext("2d");
-  var myChart = new Chart(ctx, {
-    type: "pie",
-    data: {
-      // Blue, Green, Red, Yellow
-      labels: ["Principal", "Insurance", "Taxes", "HOA fees"],
-      datasets: [
-        {
-          label: "My First Dataset",
-          data: [principal, 20, 300],
-          backgroundColor: [
-            "#4895ef",
-            "#ef476f",
-            "rgb(54, 162, 235)",
-            "rgb(255, 205, 86)",
-          ],
-          hoverOffset: 4,
-        },
-      ],
-    },
-  });
+  displayMonthlyTotals(monthlyPayment.toFixed(), insurance, taxes, fees);
+  displayLoanChart(monthlyPayment, insurance, taxes, fees);
 };
