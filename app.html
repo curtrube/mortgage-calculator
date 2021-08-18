@@ -29,8 +29,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./node_modules/chart.js/dist/chart.js"></script>
-
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="icon" type="imgage/png" href="./img/favicon-32x32.png" />
   </head>
@@ -73,18 +71,31 @@
     </nav>
     <!-- Main -->
     <main class="flex-shrink-0">
-      <div id="root" class="container mt-5">
-        <div>
-          <h1 class="display-5">Mortgage Calculator</h1>
-          <p class="lead">Quickly calculate your monthly mortgage payment</p>
+      <div class="container mt-5">
+        <div class="row border">
+          <div class="col-12">
+            <h1 class="display-6">Mortgage Calculator</h1>
+            <p>
+              Use our Mortgage Calculator to estimate your monthly mortgage
+              payment. You can input a different home price, down payment, loan
+              term and interest rate to see how your monthly payment changes.
+            </p>
+          </div>
         </div>
         <div class="row">
-          <div class="col-12">
+          <!-- Column 1 -->
+          <div class="col-12 col-lg-4 border">
+            <div>
+              <img
+                src="./img/money.jpeg"
+                alt="Money"
+                width="300"
+                class="align-self-center"
+              />
+            </div>
             <form>
-              <div class="form-group-1">
-                <label for="loanAmount" class="form-label lead"
-                  >Loan Amount</label
-                >
+              <div>
+                <label for="loanAmount" class="form-label">Down Payment</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text"
                     ><i class="fas fa-money-bill-alt"></i
@@ -100,9 +111,9 @@
                   />
                 </div>
               </div>
-              <div class="form-group-2">
-                <label for="interestRate" class="form-label lead"
-                  >Annual Interest Rate</label
+              <div>
+                <label for="interestRate" class="form-label"
+                  >Interest Rate</label
                 >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
@@ -120,8 +131,8 @@
                 </div>
               </div>
               <div class="form-group-3">
-                <label for="mortgageLength" class="form-label lead"
-                  >Mortgage Length</label
+                <label for="mortgageLength" class="form-label"
+                  >Length of loan</label
                 >
                 <div class="input-group mb-3">
                   <span for="mortageLength" class="input-group-text"
@@ -146,49 +157,47 @@
               </div>
             </form>
           </div>
-          <!-- Section -->
-          <div class="col-12 mt-5">
+          <!-- Column 2 -->
+          <div class="col-12 col-lg-4 border">
             <div class="row">
-              <div class="col">
-                <div>
-                  <h3>Monthly Payment</h3>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <p>Principal + Interest</p>
-                  </div>
-                  <div class="col">
-                    <span id="monthlyPrincipal"></span>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <p>Homeowner's Insurance</p>
-                  </div>
-                  <div class="col">
-                    <span id="monthlyInsurance"></span>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <p>Property Tax</p>
-                  </div>
-                  <div class="col">
-                    <span id="monthlyTaxes"></span>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <p>HOA fee</p>
-                  </div>
-                  <div class="col">
-                    <span id="monthlyFees">$0</span>
-                  </div>
-                </div>
+              <div>
+                <label>Monthly Payment</label>
+                <span>
+                  <i class="fas fa-dollar-sign"></i>
+                </span>
+                <span id="monthlyPaymentTotal"></span>
               </div>
-              <div class="col">
-                <canvas id="myChart" width="400" height="400"></canvas>
-              </div>
+            </div>
+            <div class="row"></div>
+          </div>
+          <!-- Column 3 -->
+          <div class="col-12 col-lg-4 border">
+            <div>
+              <h6>Monthly Payment Breakdown</h6>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span>
+                        <label>Principal + Interest</label>
+                      </span>
+                    </td>
+                    <td>
+                      <span>1186</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>
+                        <label>Homeowner's Insurance</label>
+                      </span>
+                    </td>
+                    <td>
+                      <span>66</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

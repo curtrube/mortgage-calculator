@@ -7,6 +7,11 @@ const calculateMortgage = (event) => {
 
 const getValues = () => {
   const loanAmount = Number(document.getElementById("loanAmount").value);
+
+  if (loanAmount === 0) {
+    alert("Incorrect Home Price");
+  }
+
   const interestRate = Number(document.getElementById("interestRate").value);
   const length = Number(document.getElementById("mortgageLength").value);
 
@@ -19,9 +24,9 @@ const getValues = () => {
   return loan;
 };
 
-const displayResults = (monthlyPayment) => {
-  const displayTotal = document.getElementById("totalMonthlyPayment");
-  displayTotal.innerHTML = monthlyPayment;
+const displayMonthlyPayment = (monthlyPayment) => {
+  const displayMonthlyTotal = document.getElementById("monthlyPaymentTotal");
+  displayMonthlyTotal.innerHTML = monthlyPayment;
 };
 
 const displayMonthlyTotals = (principal, insurance, taxes, fees) => {
@@ -31,25 +36,6 @@ const displayMonthlyTotals = (principal, insurance, taxes, fees) => {
   const monthlyFees = document.getElementById("monthlyFees");
 
   monthlyPrincipal.innerHTML = `$ ${principal}`;
-};
-
-const displayLoanChart = (principal, insurance, taxes, fees) => {
-  var ctx = document.getElementById("myChart").getContext("2d");
-  var myChart = new Chart(ctx, {
-    type: "pie",
-    data: {
-      // Blue, Green, Red, Yellow
-      labels: ["Principal", "Insurance", "Taxes", "HOA fees"],
-      datasets: [
-        {
-          label: "My First Dataset",
-          data: [principal, insurance, taxes, fees],
-          backgroundColor: ["#4895ef", "#ef476f", "#ffba08", "#9e2a2b"],
-          hoverOffset: 4,
-        },
-      ],
-    },
-  });
 };
 
 const calculateMonthlyPayment = (amount, rate, length) => {
@@ -64,6 +50,7 @@ const calculateMonthlyPayment = (amount, rate, length) => {
   console.log(`Mortgage Length: ${numberOfPayments} months`);
 
   // Calculate monthly mortgage payment
+  // Todo: return monthlyPayment.ToFixed();
   let monthlyPayment =
     (amount * monthlyInterestRate) /
     (1 - Math.pow(1 + monthlyInterestRate, numberOfPayments * -1));
@@ -74,6 +61,6 @@ const calculateMonthlyPayment = (amount, rate, length) => {
   const taxes = 132;
   const fees = 0;
 
-  displayMonthlyTotals(monthlyPayment.toFixed(), insurance, taxes, fees);
-  displayLoanChart(monthlyPayment, insurance, taxes, fees);
+  // displayMonthlyTotals(monthlyPayment.toFixed(), insurance, taxes, fees);
+  displayMonthlyPayment(monthlyPayment.toFixed());
 };
